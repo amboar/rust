@@ -9,11 +9,6 @@ git:
   submodules: false
 
 osx_image: xcode8.2
-
-env:
-  global:
-    - TRAVIS_ARCH_NAME=powerpc64le
-
 matrix:
   include:
     # Linux builders, all docker images
@@ -32,6 +27,7 @@ matrix:
     - env: IMAGE=x86_64-gnu-llvm-3.7 ALLOW_PR=1 RUST_BACKTRACE=1
     - env: IMAGE=x86_64-musl
     - env: IMAGE=x86_64-gnu-distcheck
+    - env: TRAVIS_ARCH_NAME=powerpc64le
 
     # OSX builders
     - env: >
