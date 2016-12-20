@@ -10,6 +10,10 @@ git:
 
 osx_image: xcode8.2
 
+env:
+  global:
+    - TRAVIS_ARCH_NAME=powerpc64le
+
 matrix:
   include:
     # Linux builders, all docker images
@@ -68,6 +72,9 @@ script:
   - >
       if [ "$ALLOW_PR" = "" ] && [ "$TRAVIS_BRANCH" != "auto" ]; then
           echo skipping, not a full build;
+      elif [ "$TRAVIS_ARCH_NAME" = "powerpc64le" ]; then
+          git submodule update --init;
+          src/ci/run.sh;
       elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
           travis_retry git submodule update --init &&
           src/ci/run.sh;
@@ -91,3 +98,5 @@ notifications:
 cache:
   directories:
     - $HOME/docker
+    - $HOME/.ccache
+    - $HOME/.cargo
