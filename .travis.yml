@@ -68,8 +68,8 @@ script:
   - >
       if [ "$ALLOW_PR" = "" ] && [ "$TRAVIS_BRANCH" != "auto" ]; then
           echo skipping, not a full build;
-      elif [ "$TRAVIS_ARCH_NAME" = "ppc64le" ]; then
-          if [ `uname -m` = "ppc64le" ]; then
+      elif [ `uname -m` = "ppc64le" ]; then
+          if [ "$TRAVIS_ARCH_NAME" = "ppc64le" ]; then
             cat /etc/os-release &&
             ldd --version &&
             git submodule update --init &&
@@ -77,6 +77,8 @@ script:
           else
             echo skipping job not fit for ppc64le;
           fi
+      elif [ "$TRAVIS_ARCH_NAME" = "ppc64le" ]; then
+            echo skipping job not fit for ppc64le;
       elif [ "$TRAVIS_OS_NAME" = "osx" ]; then
           travis_retry git submodule update --init &&
           src/ci/run.sh;
