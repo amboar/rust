@@ -77,7 +77,7 @@ script:
             echo 'deb http://ftp.unicamp.br/pub/ppc64el/ubuntu/14_04/docker-ppc64el/ trusty main' |
               sudo tee /etc/apt/sources.list.d/docker.list;
             sudo apt-get update &&
-            sudo apt-get install -y docker-engine &&
+            sudo apt-get install --force-yes docker-engine &&
             sudo service start docker &&
             src/ci/docker/run.sh $IMAGE;
           else
