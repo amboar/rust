@@ -12,21 +12,21 @@ osx_image: xcode8.2
 matrix:
   include:
     # Linux builders, all docker images
-    - env: IMAGE=arm-android
-    - env: IMAGE=cross
-    - env: IMAGE=dist-arm-unknown-linux-gnueabi
-    - env: IMAGE=dist-x86_64-unknown-freebsd
+#    - env: IMAGE=arm-android
+#    - env: IMAGE=cross
+#    - env: IMAGE=dist-arm-unknown-linux-gnueabi
+#    - env: IMAGE=dist-x86_64-unknown-freebsd
     - env: IMAGE=i686-gnu
-    - env: IMAGE=i686-gnu-nopt
-    - env: IMAGE=x86_64-gnu
-    - env: IMAGE=x86_64-gnu-full-bootstrap
-    - env: IMAGE=x86_64-gnu-aux
-    - env: IMAGE=x86_64-gnu-debug
-    - env: IMAGE=x86_64-gnu-nopt
-    - env: IMAGE=x86_64-gnu-make
-    - env: IMAGE=x86_64-gnu-llvm-3.7 ALLOW_PR=1 RUST_BACKTRACE=1
-    - env: IMAGE=x86_64-musl
-    - env: IMAGE=x86_64-gnu-distcheck
+#    - env: IMAGE=i686-gnu-nopt
+#    - env: IMAGE=x86_64-gnu
+#    - env: IMAGE=x86_64-gnu-full-bootstrap
+#    - env: IMAGE=x86_64-gnu-aux
+#    - env: IMAGE=x86_64-gnu-debug
+#    - env: IMAGE=x86_64-gnu-nopt
+#    - env: IMAGE=x86_64-gnu-make
+#    - env: IMAGE=x86_64-gnu-llvm-3.7 ALLOW_PR=1 RUST_BACKTRACE=1
+#    - env: IMAGE=x86_64-musl
+#    - env: IMAGE=x86_64-gnu-distcheck
     - env: TRAVIS_ARCH_NAME=ppc64le IMAGE=ppc64le-gnu
 
     # OSX builders
