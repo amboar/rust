@@ -78,7 +78,6 @@ script:
               sudo tee /etc/apt/sources.list.d/docker.list;
             sudo apt-get update &&
             sudo apt-get install --force-yes docker-engine &&
-            sudo service start docker &&
             src/ci/docker/run.sh $IMAGE;
           else
             echo skipping job not fit for ppc64le;
