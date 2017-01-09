@@ -27,7 +27,7 @@ matrix:
     - env: IMAGE=x86_64-gnu-llvm-3.7 ALLOW_PR=1 RUST_BACKTRACE=1
     - env: IMAGE=x86_64-musl
     - env: IMAGE=x86_64-gnu-distcheck
-    - env: TRAVIS_ARCH_NAME=ppc64le SRC=.
+    - env: TRAVIS_ARCH_NAME=ppc64le IMAGE=ppc64le-gnu
 
     # OSX builders
     - env: >
@@ -68,12 +68,12 @@ script:
   - >
       if [ "$ALLOW_PR" = "" ] && [ "$TRAVIS_BRANCH" != "auto" ]; then
           echo skipping, not a full build;
-      elif [ `uname -m` == "ppc64le" ]; then
-          if [ "$TRAVIS_ARCH_NAME" = `uname -m` ]; then
-            cat /etc/os-release;
-            ldd --version;
-            git submodule update --init;
-            src/ci/run.sh;
+      elif [ "$TRAVIS_ARCH_NAME" = "ppc64le" ]; then
+          if [ `uname -m` = "ppc64le" ]; then
+            cat /etc/os-release &&
+            ldd --version &&
+            git submodule update --init &&
+            src/ci/docker/run.sh $IMAGE;
           else
             echo skipping job not fit for ppc64le;
           fi
