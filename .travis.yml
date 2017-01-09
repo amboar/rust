@@ -73,7 +73,7 @@ script:
             cat /etc/os-release &&
             ldd --version &&
             whoami &&
-            sudo apt-get install -y docker &&
+            sudo apt-get install -y docker-engine &&
             sudo service start docker &&
             src/ci/docker/run.sh $IMAGE;
           else
