@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   cmake \
   sudo \
   gdb \
-  xz-utils
+  xz-utils \
+  docker
 
 ENTRYPOINT ["/usr/local/bin/dumb-init", "--"]
 
