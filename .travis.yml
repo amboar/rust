@@ -72,6 +72,9 @@ script:
           if [ "$TRAVIS_ARCH_NAME" = "ppc64le" ]; then
             cat /etc/os-release &&
             ldd --version &&
+            whoami &&
+            sudo apt install -y docker &&
+            sudo service start docker &&
             src/ci/docker/run.sh $IMAGE;
           else
             echo skipping job not fit for ppc64le;
