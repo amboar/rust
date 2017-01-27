@@ -38,6 +38,9 @@ else
     args="$args --env SCCACHE_DIR=/sccache --volume $HOME/.cache/sccache:/sccache"
 fi
 
+#  --interactive \
+#  --tty \
+
 exec docker \
   run \
   --volume "$root_dir:/checkout:ro" \
@@ -48,7 +51,5 @@ exec docker \
   --env CARGO_HOME=/cargo \
   --env LOCAL_USER_ID=`id -u` \
   --volume "$HOME/.cargo:/cargo" \
-  --interactive \
-  --tty \
   rust-ci \
   /checkout/src/ci/run.sh
