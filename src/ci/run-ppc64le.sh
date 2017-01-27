@@ -5,6 +5,7 @@ whoami
 cat /etc/hosts
 hostname
 ip addr show
+sudo echo foo
 exit 0
 sudo apt-get update
 echo 'deb http://ftp.unicamp.br/pub/ppc64el/ubuntu/14_04/docker-1.6.2-ppc64el/ trusty main' | sudo tee /etc/apt/sources.list.d/docker.list;
